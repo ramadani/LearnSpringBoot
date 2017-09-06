@@ -20,9 +20,23 @@ class UserController {
 
     @RequestMapping(method = arrayOf(RequestMethod.POST))
     fun store() {
-        users += User(100, "Ramadani", "Jakal 13.5")
+        val id = users[users.size - 1].id + 1
+        users += User(id, "Ramadani", "Jakal 13.5")
     }
 
     @RequestMapping(value = "/{id}", method = arrayOf(RequestMethod.GET))
     fun show(@PathVariable id: Long): User? = users.find { it.id == id}
+
+    @RequestMapping(value = "/{id}", method = arrayOf(RequestMethod.PUT))
+    fun update(@PathVariable id: Long) {
+        val indexOf = users.indexOf(users.find { it.id == id })
+        val user = User(id, "Muhtarudin", "Jakal 14")
+        users.removeAt(indexOf)
+        users.add(indexOf, user)
+    }
+
+    @RequestMapping(value = "/{id}", method = arrayOf(RequestMethod.DELETE))
+    fun destroy(@PathVariable id: Long) {
+        users.remove(users.find { it.id == id })
+    }
 }
