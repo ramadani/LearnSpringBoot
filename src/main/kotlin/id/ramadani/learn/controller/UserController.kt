@@ -1,6 +1,6 @@
-package id.ramadani.demo.controller
+package id.ramadani.learn.controller
 
-import id.ramadani.demo.User
+import id.ramadani.learn.domain.User
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
