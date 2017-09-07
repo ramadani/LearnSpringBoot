@@ -1,11 +1,15 @@
 package id.ramadani.learn
 
+import org.springframework.boot.Banner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication
-class DemoApplication
+class Application
 
 fun main(args: Array<String>) {
-    SpringApplication.run(DemoApplication::class.java, *args)
+    with(SpringApplication(Application::class.java)) {
+        setBannerMode(Banner.Mode.OFF)
+        run(*args)
+    }
 }
