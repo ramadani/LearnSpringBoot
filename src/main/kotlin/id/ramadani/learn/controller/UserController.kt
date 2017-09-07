@@ -1,6 +1,7 @@
 package id.ramadani.learn.controller
 
 import id.ramadani.learn.domain.User
+import id.ramadani.learn.handler.exceptions.NotFoundException
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
@@ -26,13 +27,15 @@ class UserController {
 
     @RequestMapping(value = "/{id}", method = arrayOf(RequestMethod.GET))
     fun show(@PathVariable id: Long): User {
-        return users.find { it.id == id} ?: throw Exception("User with id $id not found")
+        return users.find { it.id == id} ?: throw NotFoundException("User id $id not found")
     }
 
     @RequestMapping(value = "/{id}", method = arrayOf(RequestMethod.PUT))
     fun update(@PathVariable id: Long) {
-        val indexOf = users.indexOf(users.find { it.id == id })
+        val oldUser = users.find { it.id == id } ?: throw NotFoundException("User id $id not found")
+        val indexOf = users.indexOf(oldUser)
         val user = User(id, "Muhtarudin", "Jakal 14")
+
         users.removeAt(indexOf)
         users.add(indexOf, user)
     }
