@@ -1,5 +1,6 @@
 package id.ramadani.learn
 
+import id.ramadani.learn.interceptors.AuthInterceptor
 import org.springframework.boot.Banner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.stereotype.Component
 import org.springframework.web.servlet.config.annotation.CorsRegistry
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
@@ -22,15 +24,13 @@ class ApplicationProperties {
 }
 
 @Configuration
-class ApplicationConfiguration {
+class ApplicationConfiguration : WebMvcConfigurerAdapter() {
+    override fun addCorsMappings(registry: CorsRegistry?) {
+        registry?.addMapping("/api/**")
+    }
 
-    @Bean
-    fun corsConfigurer(): WebMvcConfigurer {
-        return object: WebMvcConfigurerAdapter() {
-            override fun addCorsMappings(registry: CorsRegistry?) {
-                registry?.addMapping("/api/**")
-            }
-        }
+    override fun addInterceptors(registry: InterceptorRegistry?) {
+        registry?.addInterceptor(AuthInterceptor())?.addPathPatterns("/api/**")
     }
 }
 

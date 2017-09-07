@@ -10,4 +10,7 @@ class ApiController {
 
     @RequestMapping(value = "/auth/login", method = arrayOf(RequestMethod.GET))
     fun login(): String = "Api Auth Login"
+
+    @RequestMapping(value = "/dashboard", method = arrayOf(RequestMethod.GET))
+    fun dashboard(): String = "Api Dashboard"
 }
