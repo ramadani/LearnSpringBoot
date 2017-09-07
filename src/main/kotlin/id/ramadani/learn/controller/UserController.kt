@@ -25,7 +25,9 @@ class UserController {
     }
 
     @RequestMapping(value = "/{id}", method = arrayOf(RequestMethod.GET))
-    fun show(@PathVariable id: Long): User? = users.find { it.id == id}
+    fun show(@PathVariable id: Long): User {
+        return users.find { it.id == id} ?: throw Exception("User with id $id not found")
+    }
 
     @RequestMapping(value = "/{id}", method = arrayOf(RequestMethod.PUT))
     fun update(@PathVariable id: Long) {

@@ -1,11 +1,15 @@
 package id.ramadani.learn
 
-import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.Banner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.ConfigurationProperties
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 import org.springframework.stereotype.Component
+import org.springframework.web.servlet.config.annotation.CorsRegistry
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 @SpringBootApplication
 class Application
@@ -15,6 +19,19 @@ class Application
 class ApplicationProperties {
     lateinit var name: String
     lateinit var env: String
+}
+
+@Configuration
+class ApplicationConfiguration {
+
+    @Bean
+    fun corsConfigurer(): WebMvcConfigurer {
+        return object: WebMvcConfigurerAdapter() {
+            override fun addCorsMappings(registry: CorsRegistry?) {
+                registry?.addMapping("/api/**")
+            }
+        }
+    }
 }
 
 fun main(args: Array<String>) {
