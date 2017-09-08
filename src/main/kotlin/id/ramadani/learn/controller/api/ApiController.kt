@@ -1,4 +1,4 @@
-package id.ramadani.learn.controller
+package id.ramadani.learn.controller.api
 
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod

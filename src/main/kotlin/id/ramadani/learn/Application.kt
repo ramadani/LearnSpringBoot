@@ -1,6 +1,6 @@
 package id.ramadani.learn
 
-import id.ramadani.learn.interceptors.AuthInterceptor
+import id.ramadani.learn.interceptor.AuthInterceptor
 import org.springframework.boot.Banner
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
