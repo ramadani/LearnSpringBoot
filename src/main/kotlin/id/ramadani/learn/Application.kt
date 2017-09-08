@@ -22,7 +22,7 @@ class ApplicationProperties {
 }
 
 @Configuration
-class ApplicationConfiguration : WebMvcConfigurerAdapter() {
+class Configuration : WebMvcConfigurerAdapter() {
     override fun addCorsMappings(registry: CorsRegistry?) {
         registry?.addMapping("/api/**")
     }
