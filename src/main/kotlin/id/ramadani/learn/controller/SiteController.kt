@@ -10,5 +10,5 @@ import org.springframework.web.bind.annotation.RestController
 class SiteController constructor(val properties: ApplicationProperties) {
 
     @RequestMapping(method = arrayOf(RequestMethod.GET))
-    fun index(): String = "app name ${properties.name} env ${properties.env}"
+    fun index(): String = "Welcome to ${properties.name}'s api"
 }
