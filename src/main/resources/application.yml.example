@@ -1,0 +1,12 @@
+app:
+  name: appname
+  env: development
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+  datasource:
+    url: jdbc:mysql://localhost:3306/dbname
+    username: username
+    password: secret
