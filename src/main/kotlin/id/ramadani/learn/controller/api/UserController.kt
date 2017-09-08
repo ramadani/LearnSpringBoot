@@ -4,6 +4,8 @@ import id.ramadani.learn.entity.User
 import id.ramadani.learn.repository.UserRepository
 import id.ramadani.learn.handler.exceptions.NotFoundException
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.*
 class UserController @Autowired constructor(val repository: UserRepository) {
 
     @RequestMapping(method = arrayOf(RequestMethod.GET))
-    fun index(): Iterable<User> = repository.findAll()
+    fun index(pageable: Pageable): Page<User> = repository.findAll(pageable)
 
     @RequestMapping(method = arrayOf(RequestMethod.POST))
     @ResponseStatus(HttpStatus.CREATED)
