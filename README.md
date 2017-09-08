@@ -13,7 +13,7 @@
 - [x] Entity & Repository
 - [ ] Caching
 - [ ] Validation
-- [ ] Service
+- [x] Service
 - [ ] Dependencies Injection
 - [ ] Profiles
 - [ ] Deploy

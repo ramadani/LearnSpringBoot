@@ -1,4 +1,4 @@
-package id.ramadani.learn.controller
+package id.ramadani.learn.http.controller
 
 import id.ramadani.learn.ApplicationProperties
 import org.springframework.web.bind.annotation.RequestMapping

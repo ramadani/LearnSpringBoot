@@ -1,6 +1,6 @@
-package id.ramadani.learn.handler
+package id.ramadani.learn.http.handler
 
-import id.ramadani.learn.handler.exceptions.NotFoundException
+import id.ramadani.learn.http.handler.exceptions.NotFoundException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice

@@ -1,4 +1,4 @@
-package id.ramadani.learn.entity
+package id.ramadani.learn.domain
 
 import org.springframework.data.jpa.repository.Temporal
 import java.util.*

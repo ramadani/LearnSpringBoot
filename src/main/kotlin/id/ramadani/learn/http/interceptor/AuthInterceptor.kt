@@ -1,4 +1,4 @@
-package id.ramadani.learn.interceptor
+package id.ramadani.learn.http.interceptor
 
 import org.springframework.http.HttpStatus
 import org.springframework.web.servlet.HandlerInterceptor
