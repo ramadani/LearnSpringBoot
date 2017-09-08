@@ -23,10 +23,6 @@ class ApplicationProperties {
 
 @Configuration
 class Configuration : WebMvcConfigurerAdapter() {
-    override fun addCorsMappings(registry: CorsRegistry?) {
-        registry?.addMapping("/api/**")
-    }
-
     override fun addInterceptors(registry: InterceptorRegistry?) {
         registry?.addInterceptor(AuthInterceptor())?.addPathPatterns("/api/**")
     }
