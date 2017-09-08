@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServletResponse
 
 class AuthInterceptor : HandlerInterceptor {
     override fun preHandle(request: HttpServletRequest?, response: HttpServletResponse?, handler: Any?): Boolean {
-        if (request?.getHeader("token").isNullOrEmpty())
+        return if (request?.getHeader("token").isNullOrEmpty()) {
             response?.sendError(HttpStatus.UNAUTHORIZED.value(), "Token Not Found")
-
-        return true
+            false
+        } else {
+            true
+        }
     }
 
     override fun postHandle(request: HttpServletRequest?, response: HttpServletResponse?, handler: Any?,
