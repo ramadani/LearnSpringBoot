@@ -9,6 +9,6 @@ spring:
     hibernate:
       ddl-auto: create
   datasource:
-    url: jdbc:mysql://localhost:3306/dbname
+    url: jdbc:mysql://localhost:3306/dbname?autoReconnect=true&useSSL=false
     username: username
     password: secret
